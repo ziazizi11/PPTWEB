@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSSI - Universitas Nahdlatul Ulama Surabaya</title>
+    <link rel="icon" type="image/png" href="img/unusa.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        unusa: {
+                            green: '#0F7639',
+                            dark: '#0A5227',
+                            gold: '#F5B01B',
+                            light: '#F8FBF9',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-unusa-light text-slate-800 antialiased selection:bg-unusa-green selection:text-white relative">
+
+    <nav class="bg-white border-b border-slate-100 relative z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <a href="#">
+                        <img src="img/unusa.png" alt="Logo UNUSA" class="h-12 w-auto">
+                    </a>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">PSSI <span class="text-unusa-green">UNUSA</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-slate-500 hover:text-unusa-green font-medium transition-colors">Home</a>
+                    <a href="#" class="text-slate-500 hover:text-unusa-green font-medium transition-colors">About</a>
+                    <a href="#" class="text-slate-500 hover:text-unusa-green font-medium transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-10 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 border border-green-100 text-unusa-green text-sm font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-unusa-gold"></span>
+                    Tugas Presentasi Mata Kuliah
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+                    Perencanaan Strategis <br>
+                    <span class="text-unusa-green">Sistem Informasi</span>
+                </h1>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Analisis komprehensif mengenai keselarasan strategi bisnis dan teknologi informasi pada instansi Universitas Nahdlatul Ulama Surabaya (UNUSA).
+                </p>
+            </div>
+
+            <div class="relative w-full max-w-lg mx-auto lg:ml-auto float-anim mt-10 lg:mt-0">
+                <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-unusa-green bg-green-50 rounded-2xl z-0"></div>
+                <div class="absolute -top-4 -left-4 w-24 h-24 bg-unusa-gold opacity-20 rounded-full blur-xl z-0"></div>
+                
+                <div class="relative z-10 bg-white p-2 rounded-2xl shadow-xl border border-slate-100">
+                    <img src="img/hero.jpeg" alt="Ilustrasi Strategi Bisnis" class="w-full h-auto aspect-[4/3] object-cover rounded-xl bg-slate-100">
+                    <div class="absolute -left-6 bottom-8 bg-white px-4 py-3 rounded-xl shadow-lg border border-slate-100 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-green-100 text-unusa-green rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium">Analisis Data</p>
+                            <p class="text-sm text-slate-900 font-bold">Kinerja UNUSA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sticky top-0 z-50 bg-unusa-light/85 backdrop-blur-md border-y border-slate-200/60 shadow-sm py-4 mb-8 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="loadPage('business-context')" id="btn-business-context" class="tab-btn px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200">
+                    Business Context
+                </button>
+                <button onclick="loadPage('enterprise-architecture')" id="btn-enterprise-architecture" class="tab-btn px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200">
+                    Enterprise Architecture
+                </button>
+                <button onclick="loadPage('it-masterplan')" id="btn-it-masterplan" class="tab-btn px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200">
+                    IT Masterplan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <main id="content-area" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 min-h-[50vh]">
+        </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+        <p>© 2026 Presentasi PSSI - Universitas Nahdlatul Ulama Surabaya.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
