@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FP-MLTI - UNUSA</title>
+    <link rel="icon" type="image/png" href="img/unusa.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="img/unusa.png" alt="UNUSA Logo" style="height: 40px; width: auto;">
+                <h2>FP-MLTI</h2>
+            </div>
+
+            <div class="nav-actions">
+                <div class="presentation-controls">
+                    <button id="btnLightTheme" class="icon-btn" title="Mode Terang"><i class="fa-solid fa-sun"></i></button>
+                    <button id="btnDarkTheme" class="icon-btn" title="Mode Gelap"><i class="fa-solid fa-moon"></i></button>
+                    <button id="btnFullscreen" class="icon-btn" title="Layar Penuh"><i class="fa-solid fa-expand"></i></button>
+                </div>
+                <button class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="container page-container">
+            <!-- Hero Section -->
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge badge-green" style="margin-bottom: 20px;">Final Project - Sistem Informasi UNUSA</span>
+                    <h1>Manajemen Layanan <span>Teknologi Informasi</span></h1>
+                    <p>Proyek ini bertujuan untuk merancang, mengelola, dan mengoptimalkan layanan teknologi informasi yang selaras dengan kebutuhan bisnis menggunakan kerangka kerja standar industri (ITIL v4).</p>
+                    
+                    <div style="margin-top: 40px; display: flex; gap: 15px;">
+                        <span class="badge badge-green">ITSM</span>
+                        <span class="badge badge-yellow">ITIL v4</span>
+                        <span class="badge badge-green">Service Design</span>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <img src="img/gedung-unusa.jpg" alt="Gedung UNUSA" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="section-padding bg-light" style="padding: 60px 24px; margin: 0 -24px 40px; border-radius: 0;">
+                <div class="title-block">
+                    <span class="badge badge-yellow" style="margin-bottom: 10px;">Tim Pengembang</span>
+                    <h2>Anggota Kelompok 1</h2>
+                    <p>Mahasiswa Sistem Informasi UNUSA yang berkontribusi dalam proyek ini.</p>
+                </div>
+
+                <div class="team-circle-grid">
+                    <div class="team-circle-item">
+                        <div class="circle-img-wrapper">
+                            <img src="https://ui-avatars.com/api/?name=Fatchur+Rozi&background=006633&color=fff&size=150&font-size=0.4" alt="Fatchur Rozi">
+                        </div>
+                        <h4 class="team-name">Fatchur Rozi</h4>
+                        <p class="team-nim">3130023008</p>
+                    </div>
+                    <div class="team-circle-item">
+                        <div class="circle-img-wrapper">
+                            <img src="https://ui-avatars.com/api/?name=Muaffa+Aditya&background=f4b31a&color=fff&size=150&font-size=0.4" alt="M. Muaffa Aditya">
+                        </div>
+                        <h4 class="team-name">M. Muaffa Aditya</h4>
+                        <p class="team-nim">3130023042</p>
+                    </div>
+                    <div class="team-circle-item">
+                        <div class="circle-img-wrapper">
+                            <img src="https://ui-avatars.com/api/?name=Bakhri+Ilmi&background=006633&color=fff&size=150&font-size=0.4" alt="Mocahmmad Bakhri Ilmi Kurniawan">
+                        </div>
+                        <h4 class="team-name">Moch. Bakhri Ilmi K.</h4>
+                        <p class="team-nim">3130023013</p>
+                    </div>
+                    <div class="team-circle-item">
+                        <div class="circle-img-wrapper">
+                            <img src="https://ui-avatars.com/api/?name=Azizi+Alfarizki&background=f4b31a&color=fff&size=150&font-size=0.4" alt="Moch. Azizi Alfarizki">
+                        </div>
+                        <h4 class="team-name">Moch. Azizi Alfarizki</h4>
+                        <p class="team-nim">3130023043</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline / Roadmap Section -->
+            <div class="section-padding" id="tahapan-proyek">
+                <div class="title-block">
+                    <span class="badge badge-yellow" style="margin-bottom: 10px;">Roadmap Proyek</span>
+                    <h2>Tahapan Pengerjaan FP-MLTI</h2>
+                    <p>Timeline pelaksanaan final project berdasarkan target capaian per minggu.</p>
+                </div>
+
+                <div class="timeline-grid">
+                    <!-- Minggu 10 -->
+                    <a href="pages/minggu-10.html" class="timeline-card">
+                        <div class="timeline-week">Minggu 10</div>
+                        <div class="timeline-content">
+                            <h4>Identifikasi Layanan Eksisting</h4>
+                            <p>Identifikasi daftar layanan TI dan manajemen layanan TI eksisting.</p>
+                            <div class="artefak-label">Artefak:</div>
+                            <ul>
+                                <li>Katalog Layanan TI</li>
+                                <li>Manajemen layanan TI eksisting (proses, function + peran, dan alat bantu)</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    </a>
+
+                    <!-- Minggu 11 -->
+                    <a href="pages/minggu-11.html" class="timeline-card">
+                        <div class="timeline-week">Minggu 11</div>
+                        <div class="timeline-content">
+                            <h4>Identifikasi MLTI Ideal & Gap</h4>
+                            <p>Identifikasi MLTI ideal dan analisis kesenjangan (Gap Analysis).</p>
+                            <div class="artefak-label">Artefak:</div>
+                            <ul>
+                                <li>MLTI ideal</li>
+                                <li>Daftar kesenjangan dan rekomendasi</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    </a>
+
+                    <!-- Minggu 12 -->
+                    <a href="pages/minggu-12.html" class="timeline-card">
+                        <div class="timeline-week">Minggu 12</div>
+                        <div class="timeline-content">
+                            <h4>Katalog Layanan To-Be</h4>
+                            <p>Usulan katalog layanan TI yang baru (to be).</p>
+                            <div class="artefak-label">Artefak:</div>
+                            <ul>
+                                <li>Katalog layanan TI</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    </a>
+
+                    <!-- Minggu 13 -->
+                    <a href="pages/minggu-13.html" class="timeline-card">
+                        <div class="timeline-week">Minggu 13</div>
+                        <div class="timeline-content">
+                            <h4>Struktur Service Desk & SOP</h4>
+                            <p>Kajian usulan struktur unit IT Service Desk dan SOP MLTI.</p>
+                            <div class="artefak-label">Artefak:</div>
+                            <ul>
+                                <li>Usulan struktur unit IT Service Desk to-be</li>
+                                <li>SOP MLTI</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    </a>
+
+                    <!-- Minggu 14 -->
+                    <a href="pages/minggu-14.html" class="timeline-card" style="grid-column: 1 / -1; max-width: 100%;">
+                        <div class="timeline-week">Minggu 14</div>
+                        <div class="timeline-content">
+                            <h4>Teknologi Penunjang</h4>
+                            <p>Kajian usulan teknologi penunjang MLTI.</p>
+                            <div class="artefak-label">Artefak:</div>
+                            <ul>
+                                <li>Usulan desain tools IT Service Desk</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <i class="fa-solid fa-leaf"></i> FP-MLTI Universitas Nahdlatul Ulama Surabaya
+            </div>
+            <div class="footer-links">
+                <span>&copy; 2026 Sistem Informasi UNUSA</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
