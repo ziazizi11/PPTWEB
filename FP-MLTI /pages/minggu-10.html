@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minggu 10 - FP-MLTI</title>
+    <link rel="icon" type="image/png" href="../img/unusa.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .table-wrapper {
+            margin-top: 50px;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            overflow: hidden; /* Menjaga sudut melengkung */
+        }
+        
+        .table-header-info {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .table-header-info h3 {
+            margin: 0;
+            color: #0f172a;
+            font-size: 1.5rem;
+        }
+
+        .table-header-info p {
+            margin: 5px 0 0 0;
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .table-container {
+            width: 100%;
+            max-height: 500px; /* Tinggi maksimal tabel sebelum scroll muncul */
+            overflow-y: auto;  /* Mengaktifkan scroll vertikal */
+            overflow-x: auto;  /* Mengaktifkan scroll horizontal di layar kecil */
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 900px; /* Mencegah tabel terlalu menyusut */
+        }
+
+        /* STICKY HEADER MAGIC DI SINI */
+        .custom-table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #f4fcf7; /* Warna hijau sangat muda khas UNUSA */
+            color: #0F7639; /* Hijau UNUSA */
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 18px 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .custom-table tbody td {
+            padding: 16px 20px;
+            font-size: 0.95rem;
+            color: #334155;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .custom-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .text-sub {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="../img/unusa.png" alt="UNUSA Logo" style="height: 40px; width: auto;">
+                <h2>FP-MLTI</h2>
+            </div>
+            <div class="nav-actions">
+                <a href="../index.html" class="btn btn-outline" style="padding: 8px 20px;"><i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container section-padding">
+            <div class="hero-grid" style="padding: 20px 0 60px;">
+                <div class="hero-content">
+                    <span class="badge badge-yellow" style="margin-bottom: 15px;">Tahapan Proyek</span>
+                    <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: var(--unusa-green-dark);">Minggu 10: <br><span>Identifikasi Layanan</span></h1>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 90%; margin-bottom: 25px; line-height: 1.6;">Identifikasi secara menyeluruh daftar layanan TI dan manajemen layanan TI eksisting pada ekosistem digital Universitas Nahdlatul Ulama Surabaya.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+                        <a href="#katalog-layanan" style="display: flex; align-items: center; gap: 12px; color: var(--unusa-green-dark); text-decoration: none; font-weight: 600; padding: 12px 20px; background: rgba(15, 118, 57, 0.08); border-radius: 12px; width: fit-content; transition: all 0.3s ease; border: 1px solid rgba(15, 118, 57, 0.15);" onmouseover="this.style.background='var(--unusa-green)'; this.style.color='white'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='rgba(15, 118, 57, 0.08)'; this.style.color='var(--unusa-green-dark)'; this.style.transform='translateY(0)';">
+                            <span style="background: white; color: var(--unusa-green); padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">Artefak 1</span> Katalog Fasilitas & Layanan IT
+                        </a>
+                        <a href="#artefak-2" style="display: flex; align-items: center; gap: 12px; color: var(--unusa-green-dark); text-decoration: none; font-weight: 600; padding: 12px 20px; background: rgba(15, 118, 57, 0.08); border-radius: 12px; width: fit-content; transition: all 0.3s ease; border: 1px solid rgba(15, 118, 57, 0.15);" onmouseover="this.style.background='var(--unusa-green)'; this.style.color='white'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='rgba(15, 118, 57, 0.08)'; this.style.color='var(--unusa-green-dark)'; this.style.transform='translateY(0)';">
+                            <span style="background: white; color: var(--unusa-green); padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">Artefak 2</span> Kondisi Eksisting IT Service Desk
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="../img/hero-minggu-10.png" alt="Ilustrasi Layanan TI dan Helpdesk" class="hero-image" style="max-width: 480px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 1px solid var(--border-color); width: 100%; object-fit: cover;">
+                </div>
+            </div>
+            
+            <div class="section-padding bg-light" style="padding: 60px 24px; margin: 0 -24px; border-radius: 0;" id="katalog-layanan">
+                <div class="title-block">
+                    <span class="badge badge-green" style="margin-bottom: 10px;">Artefak 1</span>
+                    <h2>Katalog Fasilitas & Layanan IT UNUSA</h2>
+                    <p>Daftar layanan TI eksisting yang berhasil diidentifikasi.</p>
+                </div>
+
+                <div class="catalog-grid">
+                    <div class="clean-card service-card">
+                        <div class="card-header">
+                            <div class="card-icon-small"><i class="fa-solid fa-envelope"></i></div>
+                            <h3>Layanan Email</h3>
+                        </div>
+                        <p>UNUSA menggunakan layanan email dari Google (Google Workspace). Setiap mahasiswa mendapatkan akun resmi dengan domain khusus (contoh: @students.unusa.ac.id) yang terintegrasi dengan berbagai layanan Google lainnya.</p>
+                        <a href="https://helpdesk.unusa.ac.id/knowledgebase.php?category=5" target="_blank" class="service-link">Panduan Layanan <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="clean-card service-card">
+                        <div class="card-header">
+                            <div class="card-icon-small"><i class="fa-solid fa-wifi"></i></div>
+                            <h3>Layanan Akses Internet</h3>
+                        </div>
+                        <p>Layanan akses internet menggunakan jaringan Wi-Fi kampus yang terintegrasi dengan portal login resmi UNUSA WiFi. Civitas akademika dapat terhubung dengan mudah menggunakan sistem Single Sign-On (SSO).</p>
+                        <a href="https://wifi.unusa.ac.id/" target="_blank" class="service-link">Akses Portal WiFi <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="clean-card service-card">
+                        <div class="card-header">
+                            <div class="card-icon-small"><i class="fa-solid fa-laptop-file"></i></div>
+                            <h3>Software Lisensi & Konferensi</h3>
+                        </div>
+                        <p>Dikelola oleh DITSI untuk mendukung kegiatan akademik, meliputi:</p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Zoom Meeting:</strong> Mendukung kuliah daring & rapat virtual.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Google Workspace:</strong> Akses penuh Google Meet & Classroom.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>eSorogan:</strong> LMS khusus UNUSA (<a href="https://esorogan.unusa.ac.id/" target="_blank">Akses</a>).</div></li>
+                        </ul>
+                        <a href="https://it.unusa.ac.id/2022/12/29/panduan-apa-ya/" target="_blank" class="service-link">Detail Lisensi <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="clean-card service-card">
+                        <div class="card-header">
+                            <div class="card-icon-small"><i class="fa-solid fa-code"></i></div>
+                            <h3>Pengembangan Sistem</h3>
+                        </div>
+                        <p>Meliputi pengembangan SIM akademik, e-learning, layanan digital civitas akademika, hingga penyediaan helpdesk.</p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-check"></i> <div><a href="https://sim.unusa.ac.id/front/gate/index.php" target="_blank">SIM UNUSA</a> untuk administrasi.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><a href="http://digilib.unusa.ac.id/" target="_blank">Digital Library</a> untuk referensi.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div>Portal: <a href="https://wisuda.unusa.ac.id/" target="_blank">Wisuda</a>, <a href="http://pkkmb.unusa.ac.id/" target="_blank">PKKMB</a>, & <a href="https://career.unusa.ac.id/" target="_blank">Karir</a>.</div></li>
+                        </ul>
+                        <a href="https://it.unusa.ac.id/layanan-sistem-informasiuniversitas/" target="_blank" class="service-link">Info Pengembangan <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="clean-card service-card">
+                        <div class="card-header">
+                            <div class="card-icon-small"><i class="fa-solid fa-globe"></i></div>
+                            <h3>Domain & Hosting</h3>
+                        </div>
+                        <p>UNUSA mengelola infrastruktur digital internal yang meliputi layanan Email Institusi berdomain @unusa.ac.id untuk dosen/staf dan @students.unusa.ac.id untuk mahasiswa.</p>
+                        <span class="service-link" style="color: var(--text-muted); cursor: default;"><i class="fa-solid fa-lock"></i> Penggunaan Internal</span>
+                    </div>
+
+                    <div class="clean-card service-card">
+                        <div class="card-header">
+                            <div class="card-icon-small"><i class="fa-solid fa-database"></i></div>
+                            <h3>Pemutakhiran Data</h3>
+                        </div>
+                        <p>Memastikan keakuratan data akademik, profil, dan rekam jejak tridharma:</p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Mahasiswa:</strong> Perbaikan dokumen (<a href="https://akamawa.unusa.ac.id/wp-content/uploads/2022/12/SOP-Perbaikan-Data-Mahasiswa-dan-Lulusan.pdf" target="_blank">SOP</a>).</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Alumni:</strong> Pelacakan karir (Tracer Study).</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Dosen:</strong> Sinkronisasi SINTA/Google Scholar.</div></li>
+                        </ul>
+                        <a href="https://alumni.unusa.ac.id/laporan-tracer-study/" target="_blank" class="service-link">Portal Tracer Study <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="clean-card service-card" style="grid-column: 1 / -1;">
+                        <div class="card-header">
+                            <div class="card-icon-small" style="background: var(--unusa-yellow); color: var(--unusa-white);"><i class="fa-solid fa-sitemap"></i></div>
+                            <h3 style="color: var(--text-main);">Sistem Informasi Manajemen (SIM) UNUSA</h3>
+                        </div>
+                        <p style="max-width: 900px;">Layanan Sistem Informasi Manajemen (SIM) di UNUSA meliputi pengelolaan akademik (KRS, nilai, jadwal), administrasi keuangan, kepegawaian, hingga perkuliahan daring. Sistem ini diakses melalui portal terpadu untuk mendukung konsep cyber campus.</p>
+                        
+                        <div class="grid-2" style="margin-top: 15px;">
+                            <ul class="service-list">
+                                <li><i class="fa-solid fa-check"></i> <div><strong>SIM Akademik:</strong> Kelola administrasi akademik, KRS, dan cuti.</div></li>
+                                <li><i class="fa-solid fa-check"></i> <div><strong>e-Sorogan:</strong> Pembelajaran digital & absensi realtime.</div></li>
+                            </ul>
+                            <ul class="service-list">
+                                <li><i class="fa-solid fa-check"></i> <div><strong><a href="https://simortu.unusa.ac.id/" target="_blank">SIMORTU</a>:</strong> Pantauan akademik untuk Orang Tua/Wali.</div></li>
+                                <li><i class="fa-solid fa-check"></i> <div><strong>Google Workspace:</strong> Email institusi kapasitas tak terbatas.</div></li>
+                            </ul>
+                        </div>
+                        <a href="https://sim.unusa.ac.id/front/gate/index.php" target="_blank" class="service-link">Akses SIM UNUSA <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <div class="table-header-info">
+                        <h3>Dukungan Sistem Informasi terhadap Layanan TI</h3>
+                        <p>Daftar sistem informasi yang digunakan di UNUSA beserta detail dukungan, pemilik, dan target pengguna layanan.</p>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th width="5%">No</th>
+                                    <th width="20%">Nama SI/Aplikasi</th>
+                                    <th width="30%">Layanan yang Didukung <br><span style="font-size: 0.7rem; color: #16a34a; font-weight: 500;">(Berdasarkan 7 Core Service)</span></th>
+                                    <th width="15%">Unit Pemilik Layanan</th>
+                                    <th width="15%">Unit Pengelola</th>
+                                    <th width="15%">Pengguna Layanan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="font-bold">Website Utama UNUSA <br><span style="font-weight: normal; color: #64748b; font-size: 0.85rem;">(unusa.ac.id)</span></td>
+                                    <td>Layanan Sistem Informasi Manajemen (SIM)
+                                        <span class="text-sub">Sub-Layanan: Profil digital dan penyebaran informasi kampus secara publik</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Seluruh Civitas Akademika (Kampus A, B, C) dan Masyarakat Umum</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="font-bold">E-Sorogan</td>
+                                    <td>Layanan Pemutakhiran Data
+                                        <span class="text-sub">Sub-Layanan: Presensi perkuliahan mahasiswa & dosen secara daring dan real-time</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Dosen dan Mahasiswa UNUSA di Kampus A, B, dan C</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="font-bold">SIM UNUSA <br><span style="font-weight: normal; color: #64748b; font-size: 0.85rem;">(sim.unusa.ac.id)</span></td>
+                                    <td>Layanan Sistem Informasi Manajemen (SIM)
+                                        <span class="text-sub">Sub-Layanan: Administrasi akademik utama, pengisian KRS, kartu hasil studi, transkrip, keuangan akademik, dan data kepegawaian</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya (Pusat Kampus B)</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Mahasiswa, Dosen, Tenaga Kependidikan, dan Biro Akademik Pusat</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="font-bold">Google Workspace for Education <br><span style="font-weight: normal; color: #64748b; font-size: 0.85rem;">(Email Institusi)</span></td>
+                                    <td>Layanan Email
+                                        <span class="text-sub">Sub-Layanan: Komunikasi resmi kampus, akun email dengan domain @student.unusa.ac.id dan @unusa.ac.id</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Seluruh Civitas Akademika (Kampus A, B, dan C)</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="font-bold">UNUSA Wi-Fi Portal <br><span style="font-weight: normal; color: #64748b; font-size: 0.85rem;">(wifi.unusa.ac.id) & LAN</span></td>
+                                    <td>Layanan Akses Internet / Jaringan
+                                        <span class="text-sub">Sub-Layanan: Koneksi internet nirkabel/kabel kampus melalui sistem autentikasi Single Sign-On / SSO</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Seluruh Civitas Akademika yang berada di area fisik Kampus A, B, dan C</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="font-bold">Zoom Meeting Premium & Google Meet</td>
+                                    <td>Layanan Software Lisensi / Software Video Conference
+                                        <span class="text-sub">Sub-Layanan: Penyediaan akun konferensi video berlisensi untuk kuliah hybrid, rapat pusat, dan kegiatan ormawa</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya (Pusat Kampus B)</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Dosen, Mahasiswa, Organisasi Mahasiswa, dan Pimpinan Kampus</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td class="font-bold">Layanan Pembuatan Sub-Domain & Hosting Kampus</td>
+                                    <td>Layanan Domain dan Hosting
+                                        <span class="text-sub">Sub-Layanan: Alokasi hosting internal dan pembuatan nama alamat web baru untuk fakultas, prodi, atau lembaga di bawah UNUSA</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya (Pusat Kampus B)</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Unit Kerja, Fakultas, Program Studi, dan Lembaga Internal UNUSA</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td class="font-bold">SIMORTU <br><span style="font-weight: normal; color: #64748b; font-size: 0.85rem;">(Sistem Informasi Manajemen Orang Tua)</span></td>
+                                    <td>Layanan Sistem Informasi Manajemen (SIM)
+                                        <span class="text-sub">Sub-Layanan: Portal monitoring perkembangan akademik, kehadiran, dan administrasi keuangan mahasiswa oleh orang tua</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Orang Tua / Wali Mahasiswa UNUSA</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td class="font-bold">Helpdesk TI UNUSA <br><span style="font-weight: normal; color: #64748b; font-size: 0.85rem;">(helpdesk.unusa.ac.id)</span></td>
+                                    <td>Layanan Pengembangan Sistem
+                                        <span class="text-sub">Sub-Layanan: Sistem pelaporan penanganan masalah/insiden, request fasilitas baru, dan basis pengetahuan teknis</span>
+                                    </td>
+                                    <td>Universitas Nahdlatul Ulama Surabaya</td>
+                                    <td>Tim IT UNUSA <span class="text-sub">(Sub Direktorat Transformasi Ekosistem Digital)</span></td>
+                                    <td>Seluruh Civitas Akademika yang membutuhkan bantuan teknis di Kampus A, B, dan C</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artefak 2 Section -->
+            <div class="section-padding bg-light" style="padding: 60px 24px; margin: 40px -24px 0 -24px; border-radius: 0;" id="artefak-2">
+                <div class="title-block">
+                    <span class="badge badge-green" style="margin-bottom: 10px;">Artefak 2</span>
+                    <h2>Kondisi Eksisting IT Service Desk</h2>
+                    <p>Pemetaan kondisi dan struktur layanan IT Service Desk eksisting di UNUSA.</p>
+                </div>
+
+                <!-- 1. Struktur Unit IT Service Desk -->
+                <div class="table-wrapper">
+                    <div class="table-header-info">
+                        <h3>1. Identifikasi Kondisi Eksisting Struktur Unit IT Service Desk</h3>
+                        <p>Pemetaan parameter kondisi eksisting struktur layanan TI di UNUSA.</p>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th width="5%">No</th>
+                                    <th width="20%">Parameter</th>
+                                    <th width="75%">Kondisi Eksisting di UNUSA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="font-bold">Keberadaan</td>
+                                    <td>Subdit Transformasi Ekosistem Digital (Subdit TED) UNUSA telah memiliki fungsi pelayanan bantuan (Helpdesk/Service Desk). Namun, belum ada staf yang didedikasikan secara khusus dan permanen hanya untuk posisi Service Desk agent lini pertama (Tier 1).</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="font-bold">Struktur</td>
+                                    <td>Struktur organisasinya bersifat terpusat (Centralized Service Desk) bertempat di Kampus B (Pusat). Pelayanan aduan untuk Kampus A, B, dan C dikelola langsung oleh tim teknis Subdit TED yang juga merangkap tugas sebagai administrator sistem atau jaringan.</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="font-bold">Role (Peran)</td>
+                                    <td>Peran pencatatan, pemilahan, hingga penyelesaian masalah masih dilakukan oleh orang yang sama (staf teknis Subdit TED). Belum dipisahkan secara struktural antara petugas penerima aduan (Front-line/SPOC) dengan tim ahli penyelesai masalah (Back-office).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 2. Kanal Penyampaian Keluhan -->
+                <div class="table-wrapper" style="padding-bottom: 24px;">
+                    <div class="table-header-info" style="border-bottom: none; padding-bottom: 10px;">
+                        <h3>2. Identifikasi Kanal (Saluran) Penyampaian Keluhan/Permintaan</h3>
+                        <p>Civitas akademika di Kampus A, B, dan C menyampaikan keluhan/permintaan melalui saluran eksisting berikut:</p>
+                    </div>
+                    
+                    <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 24px;">
+                        <div style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc;">
+                            <div style="font-size: 2rem; color: #25D366; margin-bottom: 10px;"><i class="fa-brands fa-whatsapp"></i></div>
+                            <h4 style="color: #0f172a; margin-bottom: 5px; font-weight: 700; font-size: 1.1rem;">a. Pesan Instan (WhatsApp)</h4>
+                            <p style="font-size: 0.95rem; color: #64748b; margin: 0; line-height: 1.5;">Menghubungi nomor kontak personal staf Subdit TED atau grup koordinasi unit kerja.</p>
+                        </div>
+                        <div style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc;">
+                            <div style="font-size: 2rem; color: #0f7639; margin-bottom: 10px;"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+                            <h4 style="color: #0f172a; margin-bottom: 5px; font-weight: 700; font-size: 1.1rem;">b. Datang Langsung (Walk-in)</h4>
+                            <p style="font-size: 0.95rem; color: #64748b; margin: 0; line-height: 1.5;">Pengguna mendatangi ruang kerja Subdit TED di Kampus B (Pusat) untuk membawa perangkat yang bermasalah.</p>
+                        </div>
+                        <div style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc;">
+                            <div style="font-size: 2rem; color: #f4b31a; margin-bottom: 10px;"><i class="fa-solid fa-envelope-open-text"></i></div>
+                            <h4 style="color: #0f172a; margin-bottom: 5px; font-weight: 700; font-size: 1.1rem;">c. Memo / Nota Dinas</h4>
+                            <p style="font-size: 0.95rem; color: #64748b; margin: 0; line-height: 1.5;">Surat resmi cetak atau nota dinas digital dari unit kerja/fakultas/prodi yang ditujukan kepada Kepala Subdit TED.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Kondisi Eksisting Prosedur -->
+                <div class="table-wrapper">
+                    <div class="table-header-info">
+                        <h3>3. Identifikasi Kondisi Eksisting Prosedur IT Service Desk</h3>
+                        <p>Pemetaan kondisi prosedur eksisting pelayanan TI.</p>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th width="5%">No</th>
+                                    <th width="20%">Parameter</th>
+                                    <th width="75%">Kondisi Eksisting di UNUSA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="font-bold">Keberadaan Dokumen Prosedur</td>
+                                    <td>Dokumen standardisasi tertulis atau Standard Operating Procedure (SOP) formal yang khusus mengatur pengelolaan siklus hidup insiden (Incident Management) dan pemenuhan permintaan (Request Fulfilment) secara detail belum tersedia sepenuhnya.</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="font-bold">Cakupan Proses</td>
+                                    <td>Proses penanganan keluhan masih berjalan secara reaktif. Penanganan berfokus pada penyelesaian masalah teknis saat itu juga (break-fix), belum mencakup proses pencatatan log historis gangguan secara terstruktur dari awal hingga penutupan tiket (close ticket).</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="font-bold">Standarisasi Alur kerja</td>
+                                    <td>Alur kerja penanganan keluhan belum seragam (belum terstandar). Penyelesaian gangguan sangat bergantung pada kebiasaan, inisiatif personal, dan keahlian masing-masing staf Subdit TED yang sedang bertugas menerima komplain.</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="font-bold">Waktu Pengoperasian Layanan</td>
+                                    <td>Pelayanan bantuan Service Desk mengikuti jam kerja operasional kantor universitas, yaitu Senin - Jumat pukul 08.00 s.d. 16.00 WIB. Tidak ada layanan dukungan teknis langsung di luar jam kerja tersebut.</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="font-bold">Status Keluhan / Permintaan</td>
+                                    <td>Status pelaporan keluhan tidak terdokumentasi dan tidak dapat dipantau (tracking) secara transparan oleh pengguna. Pengguna tidak mengetahui apakah status aduannya sedang mengantre, diproses, atau sudah selesai, kecuali dengan bertanya langsung ke staf.</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="font-bold">Prosedur Eskalasi</td>
+                                    <td>Eskalasi fungsional (pengalihan ke tim ahli) dan eskalasi hirarkikal (laporan ke pimpinan) dilakukan secara lisan atau pesan singkat via WhatsApp apabila staf lapangan mengalami jalan buntu saat menangani masalah koneksi jaringan atau error pada SIM UNUSA.</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td class="font-bold">Prioritisasi Penanganan</td>
+                                    <td>Urutan penanganan keluhan belum didasarkan pada matriks penilaian dampak (impact) dan urgensi (urgency) yang baku. Keluhan ditangani berdasarkan siapa yang melapor lebih dulu, tingkat kedekatan personal, atau jika ada instruksi langsung dari jajaran pimpinan kampus.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 4. Kondisi Eksisting Teknologi Penunjang -->
+                <div class="table-wrapper">
+                    <div class="table-header-info">
+                        <h3>4. Identifikasi Kondisi Eksisting Teknologi Penunjang / Tools</h3>
+                        <p>Pemetaan kondisi eksisting teknologi penunjang yang digunakan dalam layanan TI.</p>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th width="5%">No</th>
+                                    <th width="20%">Parameter</th>
+                                    <th width="75%">Kondisi Eksisting di UNUSA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="font-bold">Keberadaan Aplikasi / Tools</td>
+                                    <td>Subdit TED UNUSA belum menggunakan sistem informasi khusus berbasis ticketing management tool (seperti aplikasi GLPI, Jira Service Desk, atau OTRS) untuk mengelola layanan bantuan penanganan keluhan TI secara terpusat.</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="font-bold">Fitur Log & Tracking</td>
+                                    <td>Karena belum adanya aplikasi penunjang, fitur untuk melakukan pencatatan (logging), kategorisasi otomatis, penugasan staf (assignment), dan pelacakan progres tiket penanganan gangguan belum bisa berjalan secara sistemik.</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="font-bold">Self Help (Panduan Mandiri)</td>
+                                    <td>Belum tersedia portal Self Help atau basis pengetahuan (Knowledge Base) mandiri yang terintegrasi di mana mahasiswa atau dosen bisa mencari solusi secara mandiri untuk masalah umum (misal: panduan mengatasi DNS error atau panduan reset password SIM UNUSA).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> <!-- End of Artefak 2 Section -->
+        </div>
+    </main>
+</body>
+</html>
