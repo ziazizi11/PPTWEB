@@ -37,11 +37,6 @@
                     </a>
                     <span class="font-bold text-xl tracking-tight text-slate-900">PSSI <span class="text-unusa-green">UNUSA</span></span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#" class="text-slate-500 hover:text-unusa-green font-medium transition-colors">Home</a>
-                    <a href="#" class="text-slate-500 hover:text-unusa-green font-medium transition-colors">About</a>
-                    <a href="#" class="text-slate-500 hover:text-unusa-green font-medium transition-colors">Contact</a>
-                </div>
             </div>
         </div>
     </nav>
@@ -86,6 +81,9 @@
     <div class="sticky top-0 z-50 bg-unusa-light/85 backdrop-blur-md border-y border-slate-200/60 shadow-sm py-4 mb-8 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="loadPage('kelompok')" id="btn-kelompok" class="tab-btn px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200">
+                    Kelompok
+                </button>
                 <button onclick="loadPage('business-context')" id="btn-business-context" class="tab-btn px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200">
                     Business Context
                 </button>
@@ -106,6 +104,6 @@
         <p>© 2026 Presentasi PSSI - Universitas Nahdlatul Ulama Surabaya.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=2"></script>
 </body>
 </html>
