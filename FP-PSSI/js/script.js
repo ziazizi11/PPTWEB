@@ -16,8 +16,9 @@ async function loadPage(pageName) {
   if (activeBtn) activeBtn.className = activeClass;
 
   try {
-    // Ambil file HTML
-    const response = await fetch(`pages/${pageName}.html`);
+    // Ambil file HTML dengan cache-busting ekstrem
+    const timestamp = new Date().getTime();
+    const response = await fetch(`pages/${pageName}.html?t=${timestamp}`, { cache: 'no-store' });
 
     if (!response.ok) {
       throw new Error(
@@ -42,5 +43,37 @@ async function loadPage(pageName) {
 
 // Muat otomatis saat halaman selesai di-render
 document.addEventListener("DOMContentLoaded", () => {
-  loadPage("business-context");
+  loadPage("kelompok");
 });
+
+// Modal Kelompok Functions
+async function loadModal(pageName) {
+  let modalContainer = document.getElementById("modal-container");
+  
+  if (!modalContainer) {
+    modalContainer = document.createElement("div");
+    modalContainer.id = "modal-container";
+    document.body.appendChild(modalContainer);
+  }
+  
+  try {
+    const response = await fetch(`pages/${pageName}.html`, { cache: 'no-store' });
+    if (!response.ok) throw new Error("Gagal memuat modal");
+    
+    const htmlContent = await response.text();
+    modalContainer.innerHTML = htmlContent;
+  } catch (error) {
+    console.error("Fetch modal error:", error);
+  }
+}
+
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    setTimeout(() => {
+      modal.remove();
+    }, 200);
+  }
+}
